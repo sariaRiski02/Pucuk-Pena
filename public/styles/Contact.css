@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Outfit;
+    src: url(../assets/font/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+nav ul li:nth-child(5) a{
+    color: #FF9400;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Outfit;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    padding-top: 100px;
+    gap: 5px;
+    padding-left: 80px;
+    padding-right: 80px;
+    justify-content: space-evenly;
+}
+.desc{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: Outfit;
+    gap: 10px;
+}
+
+h1{
+    font-size: 40px;
+}
+
+.kontak{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.first-image img {
+    width: 500px;
+}
+
+.gambar img{
+    width: 30px;
+}
+
+footer{
+    padding-top: 70px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-family: Outfit;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width:1024px){
+
+    main{
+        flex-direction: column-reverse;
+        padding-left: 60px;
+        padding-right: 60px;
+        justify-content: center;
+        gap: 2px;
+    }
+    .first-image{
+        display: flex;
+        justify-content: center;
+    }
+    .desc{
+        padding: 0;
+        align-items: center;
+       
+    }
+    .desc p{
+        text-align: center;
+    }
+    h1{
+        display: none;
+    }
+}

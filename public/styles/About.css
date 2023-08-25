@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: Outfit;
+    src: url(../assets/font/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding-top: 150px;
+    padding-right: 200px;
+    padding-left: 200px;
+    color: white;
+    font-family: Outfit;
+}
+
+nav ul li:nth-child(4) a{
+    color: #FF9400;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Outfit;
+}
+
+.first-text p{
+    text-align: center;
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+h3,p{
+    text-align: center;
+}
+
+
+.second-text{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 30px;
+}
+
+img{
+    width: 100px;
+    border-radius: 10px;
+}
+
+footer{
+    padding-top: 110px;
+    text-align: center;
+    color: white;
+    font-family: Outfit;
+    font-size: 14px;
+}
+
+@media screen and (max-width:1024px){
+
+    main{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+

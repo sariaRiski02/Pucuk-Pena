@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Outfit;
+    src: url(../assets/font/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+nav ul li:nth-child(1) a{
+    color: #FF9400;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Outfit;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    padding: 130px 80px 0 80px;
+}
+
+
+.first-text{
+    padding-top: 40px;
+    font-size: 60px;
+    font-family: Outfit;
+    color: white;
+    font-weight: bold;
+}
+
+.first-text span{
+    color: #FF9400;
+}
+
+.second-text{
+    font-size: 18px;
+    color: white;
+    font-family: Outfit;
+}
+
+.second-text span{
+    color: #FF9400;
+}
+
+.btn-collection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    background-color: white;
+    border-radius: 50px;
+    font-family: Outfit;
+    color: #FF9400;
+    font-weight: bold;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-collection:hover{
+    transition: 0.8 ease;
+    color: white;
+    background-color: #FF9400;
+}
+
+.hero img{
+    width: 600px;
+}
+
+footer{
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 10px;
+    color: white;
+    font-family: Outfit;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px){
+    main{
+        flex-direction: column-reverse;
+    }
+    .hero{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .first-text,.second-text{
+        text-align: center;
+    }
+    .first-text{
+        font-size: 50px;
+    }
+    .second-text{
+        font-size: 16px;
+    }
+    
+    .btn-collection{
+        width: 100%;
+    }
+}
+
+
