@@ -1,7 +1,7 @@
 <main>
     <div class="preview">
         <div class="cover">
-            <img src="../assets/cover/arah langkah.png" width="150px" alt="cover arah langkah">
+            <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" width="150px" alt="cover arah langkah">
         </div>
         <div class="sinopsis">
             <h2>Judul: <span>Arah langkah</span></h2>

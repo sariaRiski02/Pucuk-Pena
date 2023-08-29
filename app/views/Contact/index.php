@@ -6,15 +6,15 @@
         <div class="kontak">
             hubungi saya disini
             <div class="gambar">
-                <img src="../assets/img/gmail.png" alt="gmail">
-                <img src="../assets/img/facebook.png" alt="fb">
-                <img src="../assets/img/instagram.png" alt="instagram">
-                <img src="../assets/img/whatsapp.png" alt="Wa">
+                <img src="<?= BASEURL ?>/assets/img/gmail.png" alt="gmail">
+                <img src="<?= BASEURL ?>/assets/img/facebook.png" alt="fb">
+                <img src="<?= BASEURL ?>/assets/img/instagram.png" alt="instagram">
+                <img src="<?= BASEURL ?>/assets/img/whatsapp.png" alt="Wa">
             </div>
         </div>
     </div>
     <div class="first-image">
-        <img src="../assets/img/image-kontak.png" alt="kontak">
+        <img src="<?= BASEURL ?>/assets/img/image-kontak.png" alt="kontak">
     </div>
 
 </main>

@@ -8,11 +8,11 @@
             <span>pucuk pena</span>
             menyediakan berbagai macam buku yang bisa kamu download dengan gratis.
         </div>
-        <a href="../Collections/index.html">
+        <a href="<?= BASEURL ?>/Collections">
             <div class="btn-collection">
                 AYO AMBIL
             </div>
         </a>
     </aside>
-    <div class="hero"><img src="../assets/img/image-home.png" alt="gambar"></div>
+    <div class="hero"><img src="<?= BASEURL ?>/assets/img/image-home.png" alt="gambar"></div>
 </main>

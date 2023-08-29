@@ -84,7 +84,7 @@ textarea{
     color: black;
     font: 14px;
 }
-#fileInputLabel {
+.fileInputLabel {
     cursor: pointer;
     padding: 5px 10px;
     background-color: #FF9400;

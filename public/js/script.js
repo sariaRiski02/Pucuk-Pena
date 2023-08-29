@@ -11,18 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const fileInput = document.getElementById('fileInput');
-const fileInputLabel = document.getElementById('fileInputLabel');
+const bookFileInput = document.getElementById('bookFileInput');
+const coverFileInput = document.getElementById('coverFileInput');
+const bookFileInputLabel = document.querySelector('.fileInputLabel[for="bookFileInput"]');
+const coverFileInputLabel = document.querySelector('.fileInputLabel[for="coverFileInput"]');
 
-fileInput.addEventListener('change', (event) => {
+bookFileInput.addEventListener('change', (event) => {
   const selectedFiles = event.target.files;
   
   if (selectedFiles.length > 0) {
-    fileInputLabel.textContent = selectedFiles[0].name;
+    bookFileInputLabel.textContent = selectedFiles[0].name;
   } else {
-    fileInputLabel.textContent = 'Pilih File';
+    bookFileInputLabel.textContent = 'Masukkan Buku';
   }
 });
+
+coverFileInput.addEventListener('change', (event) => {
+  const selectedFiles = event.target.files;
+  
+  if (selectedFiles.length > 0) {
+    coverFileInputLabel.textContent = selectedFiles[0].name;
+  } else {
+    coverFileInputLabel.textContent = 'Masukkan Sampul';
+  }
+});
+
 
 
 
