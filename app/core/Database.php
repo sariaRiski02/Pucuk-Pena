@@ -54,7 +54,6 @@ class Database
     {
         $this->stmt->execute();
     }
-
     public function resultSet()
     {
         $this->execute();

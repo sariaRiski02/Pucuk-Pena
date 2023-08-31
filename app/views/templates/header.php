@@ -23,6 +23,8 @@
                 <li><a href="<?= BASEURL ?>/Contribute">Donasi</a></li>
                 <li><a href="<?= BASEURL ?>/About">Tentang</a></li>
                 <li><a href="<?= BASEURL ?>/Contact">Kontak</a></li>
+                <!-- <li style="color : white">|</li> -->
+                <!-- <li><a href="/Contact">Masuk</a></li> -->
             </ul>
         </nav>
 

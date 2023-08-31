@@ -6,69 +6,16 @@
             </form>
         </div>
         <div class="books">
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
-            <div class="book">
-                <a href="<?= BASEURL ?>/Collections/unduh">
-                    <img src="<?= BASEURL ?>/assets/cover/arah langkah.png" alt="cover arah langkah" width="200px">
-                    <div class="title">Arah Langkah</div>
-                    <span>Fiersa Besari</span>
-                </a>
-            </div>
+            <?php foreach ($data["content"] as $book) : ?>
+                <div class="book">
+                    <a href="<?= BASEURL ?>/Download/<?= $book["id"] ?>">
+                        <img src="<?= BASEURL ?>/assets/cover/<?= $book["cover"] ?>" alt="cover arah langkah" width="200px">
+                        <div class="title"><?= $book["title"] ?></div>
+                        <span><?= $book["author"] ?></span>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+
         </div>
 
     </main>

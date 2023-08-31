@@ -7,8 +7,9 @@ class Collections extends Controller
     {
         $data["tab-name"] = "Koleksi";
         $data["style"] = "Collections";
+        $data["content"] = $this->model("Upload")->GetAll();
         $this->view("templates/header", $data);
-        $this->view("Collections/index");
+        $this->view("Collections/index", $data);
         $this->view("templates/footer");
     }
 

@@ -13,13 +13,13 @@
             </div>
 
             <div class="InputDesc">
-                <input type="text" placeholder="Judul" name="tittle" required>
+                <input type="text" placeholder="Judul" name="title" required>
                 <input type="text" placeholder="Penulis" name="author" required>
             </div>
             <div class="desc">
                 <textarea name="DescBooks" id="" cols="30" rows="10" required></textarea>
             </div>
-            <?= $data["data"] ?>
+            <div class="<?= $data["data"]["class"] ?>"><?= $data["data"]["message"] ?></div>
             <button type="submit" name="submit" value="hallo">Unggah</button>
         </form>
     </main>

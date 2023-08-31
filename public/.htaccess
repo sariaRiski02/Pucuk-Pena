@@ -1,5 +1,5 @@
 Options -Multiviews
-
+php_value post_max_size 100M
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
