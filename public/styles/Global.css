@@ -9,6 +9,8 @@
     font-family: Outfit;
     src: url(../assets/font/Outfit/Outfit-VariableFont_wght.ttf);
 }
+
+
 body{
     min-height: 100vh;
     background: linear-gradient(180deg, #2D4F74 0%, #000 100%);
