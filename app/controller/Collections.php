@@ -22,4 +22,9 @@ class Collections extends Controller
         $this->view("Download/index", $data);
         $this->view("templates/footer");
     }
+
+    public function start_download($id)
+    {
+        $this->model("Download_model");
+    }
 }

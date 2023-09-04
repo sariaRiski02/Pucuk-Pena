@@ -94,12 +94,14 @@ textarea{
 }
 
 footer{
-    padding-top: 70px;
-    padding-bottom: 10px;
+
+    width: 100%;
     text-align: center;
     color: white;
     font-family: Outfit;
     font-size: 14px;
+    position: absolute;
+    bottom: 25px;
 }
 
 .failed{
@@ -150,6 +152,19 @@ button:hover{
     button{
         width: 100%;
     }
+
+    
+footer{
+
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Outfit;
+    font-size: 14px;
+    position: absolute;
+    bottom: 25px;
+}
+
 }
 
 @media screen and (max-width:780px) {
@@ -163,6 +178,13 @@ button:hover{
     }
     button{
         width: 100%;;
+    }
+    
+    footer{
+
+        position: relative;
+        bottom: 10px;
+        margin-bottom: 0px;
     }
 }
 

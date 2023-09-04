@@ -11,6 +11,7 @@ class Contribute_model
         $this->db = new Database();
     }
     // ======================================================================//
+
     // check pdf type
     public function checkPdf($target_file)
     {
@@ -26,11 +27,13 @@ class Contribute_model
         return (in_array($typefile, $typeImg)) ? true : false;
     }
 
+    // upload to directory
     public function move($key, $target_file)
     {
         return (move_uploaded_file($_FILES[$key]["tmp_name"], $target_file));
     }
 
+    // information output
     public function message($status, $message)
     {
         return array(
@@ -39,18 +42,20 @@ class Contribute_model
         );
     }
 
-
     // Add Data
     public function Add($data)
     {
         $uploadOk = "";
 
         if (isset($data["submit"])) {
-
             $title = htmlspecialchars($data["title"]);
             $author = htmlspecialchars($data["author"]);
             $sinopsis = htmlspecialchars($data["DescBooks"]);
 
+            if (!(isset($title) && isset($author) && isset($sinopsis))) {
+                return $this->message("failed", "Mohon Lengkapi data");
+                exit();
+            }
             $target_dir = "../app/assets/";
             $target_file_book = $target_dir . "books/" . basename($_FILES["book"]["name"]);
             $target_file_cover = "C:/xampp/htdocs/Pucuk-Pena/public/assets/cover/" . basename($_FILES["cover"]["name"]);
@@ -65,10 +70,12 @@ class Contribute_model
                 } else {
                     $message = "Ukuran Buku yang diizinkan < 100Mb";
                     return $this->message("failed", $message);
+                    exit();
                 };
             } else {
                 $message = "Harus format .pdf";
                 return $this->message("failed", $message);
+                exit();
             }
 
             // check img cover
@@ -79,10 +86,12 @@ class Contribute_model
                 } else {
                     $message = "Ukuran Sampul yang diizinkan < 2Mb";
                     return  $this->message("failed", $message);
+                    exit();
                 }
             } else {
                 $message = "Sampul yang Diizinkan hanya tipe png, jpeg, jpg, gif";
                 return  $this->message("failed", $message);
+                exit();
             }
 
             // check size sinopsis
@@ -94,6 +103,7 @@ class Contribute_model
             } else {
                 $message = "sinopsi yang di izinkan hanya 1000 karakter";
                 return  $this->message("failed", $message);
+                exit();
             }
             // write sinopsis to file
 
@@ -105,13 +115,15 @@ class Contribute_model
             } else {
                 $message = "sinopsis gagal dimuat";
                 return  $this->message("failed", $message);
+                exit();
             }
             $result = false;
             if ($uploadOk == "success") {
                 if ($this->move("book", $target_file_book) && $this->move("cover", $target_file_cover)) {
                     $result = "success";
                 } else {
-                    $this->message("failed", "Terjadi kesalahan, Ulangi lagi");
+                    return $this->message("failed", "Terjadi kesalahan, Ulangi lagi");
+                    exit();
                 }
             } else {
                 return "Mohon Muat ulang";
@@ -131,8 +143,10 @@ class Contribute_model
                 $success =  $this->message("success", "Berhasil diunggah");
                 $failed =  $this->message("success", "Gagal diunggah");
                 return ($this->db->rowCount() > 0) ? $success : $failed;
+                exit();
             }
             return "Mohon Muat ulang";
+            exit();
         }
         return $this->message("", "");
         exit();

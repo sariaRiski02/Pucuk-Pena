@@ -57,11 +57,13 @@ img{
 }
 
 footer{
-    padding-top: 110px;
+    width: 100%;
     text-align: center;
     color: white;
     font-family: Outfit;
     font-size: 14px;
+    position: absolute;
+    bottom: 25px;
 }
 
 @media screen and (max-width:1024px){
@@ -69,6 +71,12 @@ footer{
     main{
         padding-left: 100px;
         padding-right: 100px;
+    }
+    footer{
+
+        position: relative;
+        bottom: 10px;
+        margin-bottom: 0px;
     }
 }
 

@@ -8,7 +8,7 @@
         <div class="books">
             <?php foreach ($data["content"] as $book) : ?>
                 <div class="book">
-                    <a href="<?= BASEURL ?>/Collections/unduh/<?= $book["id"] ?>">
+                    <a href="<?= BASEURL ?>/Collections/unduh/<?= $book["id"] ?>" target="_blank">
                         <img src="<?= BASEURL ?>/assets/cover/<?= $book["cover"] ?>" alt="cover arah langkah" width="200px">
                         <div class="title">
                             <?=
