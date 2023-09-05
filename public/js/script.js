@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector("nav");
     const menuIcon = document.querySelector("input[type='checkbox']");
@@ -9,9 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.remove("respon-nav");
         }
     });
+
+
+    const bookFileInput = document.getElementById('bookFileInput');
 });
 
-const bookFileInput = document.getElementById('bookFileInput');
+
+
+
+if (window.location.href.includes('http://localhost/Pucuk-Pena/public/Contribute')) {
+
+
 const coverFileInput = document.getElementById('coverFileInput');
 const bookFileInputLabel = document.querySelector('.fileInputLabel[for="bookFileInput"]');
 const coverFileInputLabel = document.querySelector('.fileInputLabel[for="coverFileInput"]');
@@ -36,7 +45,5 @@ coverFileInput.addEventListener('change', (event) => {
   }
 });
 
-
-
-
+}
 

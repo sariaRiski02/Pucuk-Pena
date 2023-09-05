@@ -20,11 +20,11 @@
             <ul>
                 <li><a href="<?= BASEURL ?>/Home">Beranda</a></li>
                 <li><a href="<?= BASEURL ?>/Collections">Koleksi</a></li>
-                <li><a href="<?= BASEURL ?>/Contribute">Donasi</a></li>
+                <li><a href="<?= BASEURL ?>/Contribute">Pustakawan</a></li>
                 <li><a href="<?= BASEURL ?>/About">Tentang</a></li>
                 <li><a href="<?= BASEURL ?>/Contact">Kontak</a></li>
-                <!-- <li style="color : white">|</li> -->
-                <!-- <li><a href="/Contact">Masuk</a></li> -->
+                <li style="color : white">|</li>
+                <li><a href="<?= BASEURL ?>/SignIn">Masuk</a></li>
             </ul>
         </nav>
 

@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Outfit;
+}
+
+@font-face {
+    font-family: Outfit;
+    src: url(../assets/font/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+nav ul li:nth-child(7) a{
+    color: #FF9400;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Outfit;
+}
+
+main{
+    padding: 130px 80px 0 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    background-color: rgba(9, 9, 47, 0.722);
+    border-radius: 10px;
+    width: 60%;
+}
+
+form{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+::placeholder{
+    color: white;
+}
+.firsttext{
+    padding-top: 20px;
+    color: white;
+    padding-left: 50px;
+}
+
+input{
+    height: 40px;
+    width: 90%;
+    border: none;
+    color: white;
+    outline: none;
+    font: bold;
+    padding-left: 10px;
+    border-bottom: white 1px solid;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Outfit;
+    font-size: 14px;
+    position: absolute;
+    bottom: 25px;
+}
+
+
+@media screen and (max-width:780px){
+    .container{
+        width: 100%;
+    }
+
+}

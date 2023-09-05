@@ -14,7 +14,7 @@
                 <?= $data["item"]["sinopsis"] ?>
             </p>
             <hr>
-            <form action="<?= BASEURL ?>/Collections/start_download">
+            <form action="<?= BASEURL ?>/Collections/start_download/<?= $data["item"]["id"] ?>">
                 <button name="unduh" type="submit">Unduh</button>
             </form>
         </div>

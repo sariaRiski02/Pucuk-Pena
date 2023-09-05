@@ -1,8 +1,8 @@
     <main>
         <div class="search">
             <form method="post">
-                <input type="text">
-                <button type="button">Cari</button>
+                <input type="text" name="InputSearch">
+                <button type="submit" name="search">Cari</button>
             </form>
         </div>
         <div class="books">

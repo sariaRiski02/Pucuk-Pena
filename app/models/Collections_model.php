@@ -22,6 +22,7 @@ class Collections_model
         $file = fopen($dir . $sinop_file_name, "r") or die("Unable to open file!!");
         $sinopsis = fread($file, filesize($dir . $sinop_file_name));
         return array(
+            "id" => $this->db->single()["id"],
             "title" => $this->db->single()["title"],
             "author" => $this->db->single()["author"],
             "cover" => $this->db->single()["cover"],
@@ -36,5 +37,14 @@ class Collections_model
         $this->db->query("SELECT * FROM " . $this->table_book);
         return $this->db->resultSet();
     }
+
+
+    public function SearchItem($data)
+    {
+        $this->db->query("SELECT * FROM " . $this->table_book . " WHERE book LIKE '%" . $data . "%'");
+        return $this->db->resultSet();
+    }
     // --------------------------------------------------------------- ///
+
+
 }

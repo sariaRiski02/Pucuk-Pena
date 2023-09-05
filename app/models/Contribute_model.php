@@ -58,7 +58,7 @@ class Contribute_model
             }
             $target_dir = "../app/assets/";
             $target_file_book = $target_dir . "books/" . basename($_FILES["book"]["name"]);
-            $target_file_cover = "C:/xampp/htdocs/Pucuk-Pena/public/assets/cover/" . basename($_FILES["cover"]["name"]);
+            $target_file_cover =  "../public/assets/cover/" . basename($_FILES["cover"]["name"]);
             $name_file = $title . time();
             $target_file_sinop = $target_dir . "desc/" . $name_file . ".txt";
 

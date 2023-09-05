@@ -7,7 +7,13 @@ class Collections extends Controller
     {
         $data["tab-name"] = "Koleksi";
         $data["style"] = "Collections";
-        $data["content"] = $this->model("Collections_model")->GetAllItem();
+
+        if (isset($_POST["InputSearch"]) && isset($_POST["search"])) {
+            $data["content"] = $this->model("Collections_model")->SearchItem(htmlspecialchars($_POST["InputSearch"]));
+        } else {
+            $data["content"] = $this->model("Collections_model")->GetAllItem();
+        }
+
         $this->view("templates/header", $data);
         $this->view("Collections/index", $data);
         $this->view("templates/footer");
@@ -25,6 +31,6 @@ class Collections extends Controller
 
     public function start_download($id)
     {
-        $this->model("Download_model");
+        $this->model("Download_model")->download($id);
     }
 }

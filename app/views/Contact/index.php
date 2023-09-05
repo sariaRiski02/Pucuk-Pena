@@ -6,10 +6,11 @@
         <div class="kontak">
             hubungi saya disini
             <div class="gambar">
-                <img src="<?= BASEURL ?>/assets/img/gmail.png" alt="gmail">
-                <img src="<?= BASEURL ?>/assets/img/facebook.png" alt="fb">
-                <img src="<?= BASEURL ?>/assets/img/instagram.png" alt="instagram">
-                <img src="<?= BASEURL ?>/assets/img/whatsapp.png" alt="Wa">
+                <a href="mailto:mrizkisaria002@gmail.com"><img src="<?= BASEURL ?>/assets/img/gmail.png" alt="gmail"></a>
+                <a href="https://web.facebook.com/muhammad.rizkisaria"><img src="<?= BASEURL ?>/assets/img/facebook.png" alt="fb"></a>
+                <a href="https://www.instagram.com/msaria_z/"><img src="<?= BASEURL ?>/assets/img/instagram.png" alt="instagram"></a>
+                <a href="https://wa.me/081244477197"><img src="<?= BASEURL ?>/assets/img/whatsapp.png" alt="Wa"></a>
+
             </div>
         </div>
     </div>

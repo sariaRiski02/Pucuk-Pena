@@ -10,6 +10,6 @@ class Contribute extends Controller
         $data["data"] = $this->model("Contribute_model")->Add($_POST);
         $this->view("templates/header", $data);
         $this->view("Contribute/index", $data);
-        $this->view("templates/footer");
+        $this->view("templates/footer", $data);
     }
 }
