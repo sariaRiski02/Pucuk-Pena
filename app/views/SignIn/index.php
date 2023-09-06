@@ -6,12 +6,10 @@
         </div>
 
         <form method="post">
-            <input type="text" placeholder="Nama User">
             <input type="Email" placeholder="Email">
             <input type="pass" placeholder="Kata sandi">
-            <input type="pass" placeholder="Konfirmasi Kata sandi">
-            <div class="daftar">
-                Sudah punya akun?
+            <div class="masuk">
+                Belum punya akun?
                 <a href="<?= BASEURL ?>/SignUp"> Daftar</a>
             </div>
             <button type="submit" name="login">Masuk</button>

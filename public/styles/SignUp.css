@@ -47,7 +47,7 @@ form{
     padding-left: 40px;
 }
 
-.masuk{
+.daftar{
     
     width: 100%;
     padding-left: 35px;
@@ -55,7 +55,7 @@ form{
     font-size: 14px;
 }
 
-.masuk a{
+.daftar a{
     text-decoration: underline;
     font-size: 14px;
 }
@@ -71,7 +71,6 @@ input{
     background-color: rgba(240, 248, 255, 0);
 }
 
-
 button{
     width: 90%;
     height: 35px;
@@ -81,7 +80,6 @@ button{
     font-family: Outfit;
     cursor: pointer;
     border: none;
-
 }
 
 button:hover{
