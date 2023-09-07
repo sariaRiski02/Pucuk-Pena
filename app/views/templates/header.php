@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?= BASEURL ?>/styles/Global.css">
     <link rel="stylesheet" href="<?= BASEURL ?>/styles/<?= $data["style"] ?>.css">
     <link rel="icon" href="<?= BASEURL ?>/assets/img/icon-title.png" type="image/x-icon">
-    <title><?= $data["tab-name"] ?></title>
+    <title>PucPen | <?= $data["tab-name"] ?></title>
 </head>
 
 <body>

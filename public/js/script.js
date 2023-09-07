@@ -15,11 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookFileInput = document.getElementById('bookFileInput');
 });
 
-
-
-
 if (window.location.href.includes('http://localhost/Pucuk-Pena/public/Contribute')) {
-
 
 const coverFileInput = document.getElementById('coverFileInput');
 const bookFileInputLabel = document.querySelector('.fileInputLabel[for="bookFileInput"]');
@@ -47,3 +43,24 @@ coverFileInput.addEventListener('change', (event) => {
 
 }
 
+if(window.location.href.includes("http://localhost/Pucuk-Pena/public/SignUp")){
+  const pass = document.getElementById("password");
+  const confirm_pass = document.getElementById("confirm-pass");
+  const checkbox = document.getElementById("check");
+
+  checkbox.addEventListener('change', ()=>{
+
+    if(checkbox.checked){
+      pass.type = "text";
+      confirm_pass.type = "text";
+    }else{
+      pass.type = "password";
+      confirm_pass.type = "password";
+    }
+    
+  });
+
+
+
+
+}

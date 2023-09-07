@@ -63,7 +63,11 @@ menu-icon span{
 
 /* responsive */ 
 
-@media screen and (max-width:780px){
+@media screen and (max-width:940px){
+
+    nav ul li:nth-child(6){
+        display: none;
+    }
 
     menu-icon{
         display: flex;
