@@ -17,8 +17,6 @@ class SignUpSignIn_model
             "message" => $message
         );
     }
-
-
     public function AddUser($data)
     {
 
@@ -49,10 +47,14 @@ class SignUpSignIn_model
                 exit;
             }
 
-            // check email if exist or no
+            // check email if exist or not
             $this->db->query("SELECT email FROM $this->table");
             $All_email = $this->db->resultSet();
-            if (in_array($email, $All_email)) {
+            $array_email = [];
+            foreach ($All_email as $mail) {
+                $array_email[] = $mail["email"];
+            }
+            if (in_array($email, $array_email)) {
                 return $this->message("failed", "Email sudah terdaftar");
                 exit;
             }
@@ -69,17 +71,13 @@ class SignUpSignIn_model
                 return $this->message("failed", "Kata sandi tidak cocok!");
                 exit;
             }
-
             // enskripsi password
-            $salt = random_bytes(16);
-            $combine_pass = $password . $salt;
-            $hashPassword = password_hash($combine_pass, PASSWORD_BCRYPT);
+            $hashPassword = password_hash($password, PASSWORD_BCRYPT);
 
-            $this->db->query('INSERT INTO ' . $this->table . ' VALUES ("", :name, :email, :password, :salt)');
+            $this->db->query('INSERT INTO ' . $this->table . ' VALUES ("", :name, :email, :password)');
             $this->db->bind('name', $nickName);
             $this->db->bind('email', $email);
             $this->db->bind('password', $hashPassword);
-            $this->db->bind('salt', $salt);
 
             $this->db->execute();
             $success_condition = $this->message("success", "Akun berhasil dibuat");
@@ -89,5 +87,40 @@ class SignUpSignIn_model
         }
         return $this->message("", "");
         exit;
+    }
+
+    public function login($data)
+    {
+
+        if (isset($data["login"])) {
+            $email = htmlspecialchars($data["email-login"]);
+            $pass = htmlspecialchars($data["pass-login"]);
+            $exist = isset($email) && isset($pass);
+            if (!$exist) {
+                return $this->message("failed", "Mohon Lengkapi data anda");
+                exit;
+            }
+            $this->db->query("SELECT email FROM " . $this->table . " WHERE email = :email");
+            $this->db->bind("email", $email);
+            $result = $this->db->single();
+
+            if (!($this->db->rowCount() > 0)) {
+                return $this->message("failed", "Email salah");
+                exit;
+            }
+
+            $this->db->query("SELECT password FROM " . $this->table . " WHERE email = :email");
+            $this->db->bind("email", $result["email"]);
+            $pass_hash = $this->db->single()["password"];
+
+            if (!password_verify($pass, $pass_hash)) {
+                return $this->message("failed", "kata sandi salah");
+                exit;
+            }
+
+            $_SESSION["email"] = $result["email"];
+            
+            return header("Location: " . BASEURL . "/Home");
+        }
     }
 }

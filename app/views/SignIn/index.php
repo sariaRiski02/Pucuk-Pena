@@ -6,13 +6,17 @@
         </div>
 
         <form method="post">
-            <input type="Email" placeholder="Email">
-            <input type="pass" placeholder="Kata sandi">
+            <input type="Email" placeholder="Email atau Nama" name="email-login">
+            <input type="pass" placeholder="Kata sandi" name="pass-login">
+            <div class="info">
+                <?= $data["email"] ?>
+
+            </div>
+            <button type="submit" name="login">Masuk</button>
             <div class="masuk">
                 Belum punya akun?
                 <a href="<?= BASEURL ?>/SignUp"> Daftar</a>
             </div>
-            <button type="submit" name="login">Masuk</button>
 
         </form>
 
