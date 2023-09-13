@@ -83,6 +83,10 @@ footer{
     bottom: 25px;
 }
 
+.buttonToPage{
+    display: flex;
+    gap: 30px;
+}
 @media screen and (max-width: 1024px){
     main{
         flex-direction: column-reverse;
@@ -108,6 +112,11 @@ footer{
     
     .btn-collection{
         width: 100%;
+    }
+    .buttonToPage{
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
     }
 
     footer{

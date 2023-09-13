@@ -20,11 +20,19 @@
             <ul>
                 <li><a href="<?= BASEURL ?>/Home">Beranda</a></li>
                 <li><a href="<?= BASEURL ?>/Collections">Koleksi</a></li>
-                <li><a href="<?= BASEURL ?>/Contribute">Pustakawan</a></li>
-                <li><a href="<?= BASEURL ?>/About">Tentang</a></li>
-                <li><a href="<?= BASEURL ?>/Contact">Kontak</a></li>
+                <?php if (isset($_SESSION["id_user"]) && isset($_SESSION["email"])) : ?>
+                    <li><a href="<?= BASEURL ?>/Contribute" class="Contribute">Pustakawan</a></li>
+                <?php endif; ?>
+                <li><a href="<?= BASEURL ?>/About" class="About">Tentang</a></li>
+                <li><a href="<?= BASEURL ?>/Contact" class="Contact">Kontak</a></li>
                 <li style="color : white">|</li>
-                <li><a href="<?= BASEURL ?>/SignIn">Masuk</a></li>
+
+                <?php if (isset($_SESSION["id_user"]) && isset($_SESSION["email"])) : ?>
+                    <li><a href="<?= BASEURL ?>/Logout">KELUAR</a></li>
+                <?php else : ?>
+                    <li><a href="<?= BASEURL ?>/SignIn">MASUK</a></li>
+                <?php endif; ?>
+
             </ul>
         </nav>
 

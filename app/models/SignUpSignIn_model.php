@@ -8,8 +8,6 @@ class SignUpSignIn_model
     {
         $this->db = new Database;
     }
-
-
     public function message($status, $message)
     {
         return array(
@@ -19,7 +17,6 @@ class SignUpSignIn_model
     }
     public function AddUser($data)
     {
-
         if (isset($data["sign-in"])) {
 
             $nickName = htmlspecialchars($data["nickname"]);
@@ -88,7 +85,6 @@ class SignUpSignIn_model
         return $this->message("", "");
         exit;
     }
-
     public function login($data)
     {
 
@@ -108,19 +104,25 @@ class SignUpSignIn_model
                 return $this->message("failed", "Email salah");
                 exit;
             }
-
             $this->db->query("SELECT password FROM " . $this->table . " WHERE email = :email");
             $this->db->bind("email", $result["email"]);
             $pass_hash = $this->db->single()["password"];
-
             if (!password_verify($pass, $pass_hash)) {
                 return $this->message("failed", "kata sandi salah");
                 exit;
             }
-
+            $this->db->query("SELECT id FROM " . $this->table . " WHERE email = :email");
+            $this->db->bind("email", $email);
+            $id_user = $this->db->single();
+            $str = "abcdefghij";
             $_SESSION["email"] = $result["email"];
-            
+            $_SESSION["id_user"] = $id_user["id"] . str_shuffle($str);
+            setcookie("email", $_SESSION["email"], time() + (3 * 3600), "/");
+            setcookie("id_user", $_SESSION["id_user"], time() + (3 * 3600), "/");
             return header("Location: " . BASEURL . "/Home");
+            exit;
         }
+        return $this->message("", "");
+        exit;
     }
 }

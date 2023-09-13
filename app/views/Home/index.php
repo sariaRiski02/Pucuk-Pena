@@ -8,11 +8,20 @@
             <span>pucuk pena</span>
             menyediakan berbagai macam buku yang bisa kamu download dengan gratis.
         </div>
-        <a href="<?= BASEURL ?>/Collections">
-            <div class="btn-collection">
-                AYO AMBIL
-            </div>
-        </a>
+        <div class="buttonToPage">
+            <a href="<?= BASEURL ?>/Collections">
+                <div class="btn-collection">
+                    AYO AMBIL
+                </div>
+            </a>
+            <?php if (isset($_SESSION["email"]) && isset($_SESSION["id_user"])) : ?>
+                <a href="<?= BASEURL ?>/Contribute">
+                    <div class="btn-collection">
+                        DONASIKAN BUKUMU!
+                    </div>
+                </a>
+            <?php endif; ?>
+        </div>
     </aside>
     <div class="hero"><img src="<?= BASEURL ?>/assets/img/image-home.png" alt="gambar"></div>
 </main>

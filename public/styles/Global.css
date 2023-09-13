@@ -29,10 +29,14 @@ header{
 }
 nav{
     width: auto;
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 nav ul{
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 40px;
 }
 a{
@@ -59,7 +63,9 @@ menu-icon span{
     background-color: white;
 }
 
-
+ul li:last-child{
+    border-bottom: 1px solid white;
+}
 
 /* responsive */ 
 

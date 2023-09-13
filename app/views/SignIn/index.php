@@ -9,8 +9,7 @@
             <input type="Email" placeholder="Email atau Nama" name="email-login">
             <input type="pass" placeholder="Kata sandi" name="pass-login">
             <div class="info">
-                <?= $data["email"] ?>
-
+                <?= $data["data"]["status"] ?>
             </div>
             <button type="submit" name="login">Masuk</button>
             <div class="masuk">

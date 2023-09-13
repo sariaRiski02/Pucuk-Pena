@@ -22,12 +22,14 @@ main{
     font-family: Outfit;
 }
 
-nav ul li:nth-child(4) a{
-    color: #FF9400;
+nav ul li:nth-child(3) a{
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
     font-family: Outfit;
+}
+.About{
+    color: #FF9400;
 }
 
 .first-text p{
