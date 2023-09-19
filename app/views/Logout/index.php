@@ -14,3 +14,4 @@ setcookie("email", "", time() - 3600, "/");
 setcookie("id_user", "", time() - 3600, "/");
 
 header("Location:" . BASEURL . "/Home");
+exit;

@@ -96,9 +96,9 @@ footer{
     color: white;
     font-family: Outfit;
     font-size: 14px;
-    position: absolute;
-    bottom: 25px;
+    padding-bottom: 10px;
 }
+
 
 .check{
     display: flex;
@@ -143,12 +143,7 @@ footer{
     body{
         min-height: 105vh;
     }
-    footer{
-        margin-top: 30px;
-        position: relative;
-        bottom: 10px;
 
-    }
     h4{
         font-size: 14px;
     }

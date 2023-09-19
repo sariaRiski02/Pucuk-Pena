@@ -7,7 +7,11 @@
 
         <form method="post">
             <input type="Email" placeholder="Email atau Nama" name="email-login">
-            <input type="pass" placeholder="Kata sandi" name="pass-login">
+            <input type="password" placeholder="Kata sandi" name="pass-login" id="pass">
+            <div class="check">
+                <input type="checkbox" id="check">
+                <label for="check">Lihat kata sandi</label>
+            </div>
             <div class="info">
                 <?= $data["data"]["status"] ?>
             </div>

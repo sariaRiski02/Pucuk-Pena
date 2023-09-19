@@ -13,7 +13,7 @@
 
             <div class="check">
                 <input type="checkbox" id="check">
-                lihat kata sandi
+                <label for="check">Lihat kata sandi</label>
             </div>
 
             <div class="<?= $data["data"]["status"] ?>">

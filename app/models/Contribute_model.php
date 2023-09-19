@@ -94,12 +94,8 @@ class Contribute_model
                 exit();
             }
 
-            // $lebar = getimagesize($_FILES["cover"]["tmp_name"])[0];
-            // $tinggi = getimagesize($_FILES["cover"]["tmp_name"])[1];
-            // // if (!(($lebar >= 400 && $lebar <= 450) && ($tinggi >= 600 && $tinggi <= 650))) {
-            // //     return $this->message("failed", "gambar yang diizinkan ± 400 x 600");
-            // //     exit;
-            // // }
+            // check cover
+
 
             // check size sinopsis
             $max_char_sinop = 1000;
