@@ -25,7 +25,7 @@
                 <?php endif; ?>
                 <li><a href="<?= BASEURL ?>/About" class="About">Tentang</a></li>
                 <li><a href="<?= BASEURL ?>/Contact" class="Contact">Kontak</a></li>
-                <li style="color : white">|</li>
+                <li class="delimeter" style="color : white">|</li>
 
                 <?php if (isset($_SESSION["id_user"]) && isset($_SESSION["email"])) : ?>
                     <li><a href="<?= BASEURL ?>/Logout">KELUAR</a></li>

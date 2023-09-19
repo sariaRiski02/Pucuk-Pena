@@ -71,7 +71,7 @@ ul li:last-child{
 
 @media screen and (max-width:940px){
 
-    nav ul li:nth-child(6){
+    .delimeter {
         display: none;
     }
 
@@ -87,6 +87,17 @@ ul li:last-child{
     }
     nav{
         display: none;
+        border-bottom: 1px solid white;
+        height: auto;
+        animation: slide-down 4s ease; 
+    }
+    @keyframes slide-down {
+        0% {
+            transform: translateY(-50%);
+        }
+        20% {
+            transform: translateY(0%); /* Ubah nilai translateY sesuai dengan kebutuhan Anda */
+        }
     }
     .respon-nav {
         position: absolute;
