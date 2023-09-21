@@ -18,9 +18,14 @@
                 <form action="<?= BASEURL ?>/Collections/start_download/<?= $data["item"]["id"] ?>">
                     <button name="unduh" type="submit">Unduh</button>
                 </form>
-                <form action="<?= BASEURL ?>/Contribute/Update/<?= $data["item"]["id"] ?>">
-                    <button name="update" type="submit">Edit</button>
-                </form>
+                <?php if (isset($_SESSION["email"]) && isset($_SESSION["id_user"])) : ?>
+                    <form action="<?= BASEURL ?>/Contribute/UpdateBook/<?= $data["item"]["id"] ?>">
+                        <button id="Update" name="update" type="submit">Edit</button>
+                    </form>
+                    <form action="<?= BASEURL ?>/Contribute/Delete/<?= $data["item"]["id"] ?>">
+                        <button id="delete" name="hapus" type="submit">Hapus</button>
+                    </form>
+                <?php endif; ?>
 
             </div>
 

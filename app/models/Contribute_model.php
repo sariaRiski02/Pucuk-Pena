@@ -42,6 +42,8 @@ class Contribute_model
         );
     }
 
+
+
     // Add Data
     public function Add($data)
     {
@@ -94,8 +96,6 @@ class Contribute_model
                 exit();
             }
 
-            // check cover
-
 
             // check size sinopsis
             $max_char_sinop = 1000;
@@ -107,7 +107,7 @@ class Contribute_model
                 return  $this->message("failed", $message);
                 exit();
             }
-            // write sinopsis to file
+            // write sinopsis to file .txt
 
             $sinop = fopen($target_file_sinop, "w");
             if ($sinop == true) {
