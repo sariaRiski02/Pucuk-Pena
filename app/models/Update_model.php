@@ -59,7 +59,7 @@ class Update_model
                 exit;
             }
 
-            // get the name of file in the database to delete from directory
+            // get the name of file img in the database to delete from directory
             $this->db->query("SELECT cover FROM $this->table_name WHERE id=:id ");
             $this->db->bind("id", $id);
             $old_cover = $this->db->single()["cover"];
@@ -71,6 +71,7 @@ class Update_model
             unlink("../public/assets/cover/" . $old_cover);
 
 
+            // get the name of file sinops in the database to delete from directory
 
 
 
