@@ -29,6 +29,7 @@ class Update_model
     // upload to directory
     public function Update($id, $data)
     {
+
         if (isset($data["update"])) {
             $cover = $_FILES["change_cover"]["name"];
             $title = htmlspecialchars($data["change_title"]);
