@@ -12,8 +12,8 @@
                 <input type="checkbox" id="check">
                 <label for="check">Lihat kata sandi</label>
             </div>
-            <div class="info">
-                <?= $data["data"]["status"] ?>
+            <div class="<?= $data["data"]["status"] ?>">
+                <?= $data["data"]["message"] ?>
             </div>
             <button type="submit" name="login">Masuk</button>
             <div class="masuk">

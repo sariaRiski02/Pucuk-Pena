@@ -31,7 +31,7 @@ class Update_model
     {
 
         if (isset($data["update"])) {
-            $cover = $_FILES["change_cover"]["name"];
+            $cover = basename($_FILES["change_cover"]["name"]);
             $title = htmlspecialchars($data["change_title"]);
             $author = htmlspecialchars($data["change_author"]);
             $sinopsis = htmlspecialchars($data["change_sinop"]);
@@ -57,23 +57,15 @@ class Update_model
 
 
             $this->db->query("UPDATE " . $this->table_name . " SET cover=:cover" . " WHERE id=:id");
-            $this->db->bind("id", $id);
             $this->db->bind("cover", $cover);
+            $this->db->bind("id", $id);
             $this->db->execute();
             if ($this->db->rowCount() < 1) {
                 $message = "Kesalahan System, Mohon Coba lagi! 1";
-                return $this->message("failed", $message);
+                return $this->message("failed", $this->db->rowCount() . $id);
                 exit;
             }
 
-            // move to directory
-            $target_dir = "../public/assets/cover/" . $cover;
-            $result = (move_uploaded_file($_FILES["change_cover"]["tmp_name"], $target_dir));
-            if (!$result) {
-                $message = "cover tidak bisa diunggah, Coba Lagi!";
-                return $this->message("failed", $message);
-                exit;
-            }
             // get the name of file img in the database to delete from directory
             $this->db->query("SELECT cover FROM $this->table_name WHERE id=:id");
             $this->db->bind("id", $id);
@@ -84,6 +76,16 @@ class Update_model
                 exit;
             }
             unlink("../public/assets/cover/" . $old_cover);
+
+            // move to directory
+            $target_file_cover =  "../public/assets/cover/" . basename($_FILES["change_cover"]["name"]);
+            $result = (move_uploaded_file($_FILES["change_cover"]["tmp_name"], $target_file_cover));
+            if (!$result) {
+                $message = "cover tidak bisa diunggah, Coba Lagi!";
+                return $this->message("failed", $message);
+                exit;
+            }
+
 
             // CHANGE TITLE & 
 

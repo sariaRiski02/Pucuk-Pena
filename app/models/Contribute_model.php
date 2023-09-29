@@ -47,8 +47,8 @@ class Contribute_model
     // Add Data
     public function Add($data)
     {
-        $uploadOk = "";
 
+        $uploadOk = "";
         if (isset($data["submit"])) {
             $title = htmlspecialchars($data["title"]);
             $author = htmlspecialchars($data["author"]);
