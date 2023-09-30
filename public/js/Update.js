@@ -28,7 +28,5 @@ photoInput.addEventListener('change', function() {
         };
 
         reader.readAsDataURL(file);
-    } else {
-        photoPreview.src = ''; // Hapus gambar jika tidak ada file yang dipilih
     }
 });

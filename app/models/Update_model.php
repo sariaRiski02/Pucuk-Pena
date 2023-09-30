@@ -36,12 +36,6 @@ class Update_model
             $author = htmlspecialchars($data["change_author"]);
             $sinopsis = htmlspecialchars($data["change_sinop"]);
 
-            $exist = isset($cover) && isset($title) && isset($author) && isset($sinopsis);
-            if (!$exist) {
-                return $this->message("failed", "Lengkapi data");
-                exit;
-            }
-
             // CHANGE COVER
             if (!$this->checkImg($cover)) {
                 $message = "Sampul hanya dapat berformat PNG, JPEG, JPG, atau GIF";
@@ -52,17 +46,6 @@ class Update_model
             if (filesize($_FILES["change_cover"]["tmp_name"]) > $max_size_img) {
                 $message = "Max 2MB";
                 return $this->message("failed", $message);
-                exit;
-            }
-
-
-            $this->db->query("UPDATE " . $this->table_name . " SET cover=:cover" . " WHERE id=:id");
-            $this->db->bind("cover", $cover);
-            $this->db->bind("id", $id);
-            $this->db->execute();
-            if ($this->db->rowCount() < 1) {
-                $message = "Kesalahan System, Mohon Coba lagi! 1";
-                return $this->message("failed", $this->db->rowCount() . $id);
                 exit;
             }
 
@@ -77,8 +60,26 @@ class Update_model
             }
             unlink("../public/assets/cover/" . $old_cover);
 
+
+            $file_info = pathinfo($cover);
+            $extension = $file_info["extension"];
+            $file_info2 = pathinfo($cover);
+            $basename = $file_info2["filename"];
+
+            $covername = $basename . time() . "." .  $extension;
+
+            $this->db->query("UPDATE " . $this->table_name . " SET cover=:cover" . " WHERE id=:id");
+            $this->db->bind("cover",  $covername);
+            $this->db->bind("id", $id);
+            $this->db->execute();
+            if ($this->db->rowCount() < 1) {
+                $message = "Kesalahan System, Mohon Coba lagi! 1";
+                return $this->message("failed", $this->db->rowCount() . $id);
+                exit;
+            }
+
             // move to directory
-            $target_file_cover =  "../public/assets/cover/" . basename($_FILES["change_cover"]["name"]);
+            $target_file_cover =  "../public/assets/cover/" . $covername;
             $result = (move_uploaded_file($_FILES["change_cover"]["tmp_name"], $target_file_cover));
             if (!$result) {
                 $message = "cover tidak bisa diunggah, Coba Lagi!";
@@ -86,23 +87,40 @@ class Update_model
                 exit;
             }
 
-
             // CHANGE TITLE & 
 
-
             // update database
-            $this->db->query("UPDATE $this->table_name SET author=:author, title=:title WHERE id=:id");
-            $this->db->bind("author", $author);
-            $this->db->bind("title", $title);
-            $this->db->bind("id", $id);
-            $this->db->execute();
-            if ($this->db->rowCount() < 1) {
-                $this->message("failed", "perubahan gagal dilakukan");
+            if (!empty($author)) {
+                $this->db->query("UPDATE $this->table_name SET author=:author WHERE id=:id");
+                $this->db->bind("author", $author);
+                $this->db->bind("id", $id);
+                $this->db->execute();
+                if ($this->db->rowCount() < 1) {
+                    $this->message("failed", "perubahan gagal dilakukan");
+                }
             }
+
+
+
+            if (!empty($title)) {
+                $this->db->query("UPDATE $this->table_name SET title=:title WHERE id=:id");
+                $this->db->bind("title", $title);
+                $this->db->bind("id", $id);
+                $this->db->execute();
+                if ($this->db->rowCount() < 1) {
+                    $this->message("failed", "perubahan gagal dilakukan");
+                }
+            }
+
+
+
+
 
             // get the name of file sinops in the database to delete from directory
             $this->db->query("SELECT sinopsis FROM " . $this->table_name . " WHERE id=:id");
             $this->db->bind("id", $id);
+
+            //rewrite sinopsis
             $file_name_sinop = $this->db->single()["sinopsis"];
             $myfile = fopen("../app/assets/desc/" . $file_name_sinop, "w") or die("tidak bisa mengubah sinopsis");
             fwrite($myfile, $sinopsis);

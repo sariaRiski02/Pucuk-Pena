@@ -9,7 +9,7 @@
             <?php foreach ($data["content"] as $book) : ?>
                 <div class="book">
                     <a href="<?= BASEURL ?>/Collections/unduh/<?= $book["id"] ?>" target="_blank">
-                        <img src="<?= BASEURL ?>/assets/cover/<?= $book["cover"] ?>" alt="cover arah langkah" width="200px">
+                        <img src="<?= BASEURL ?>/assets/cover/<?= $book["cover"] ?>" alt="<?= $book["title"] ?>" width="200px">
                         <div class="title">
                             <?=
                             strlen($book["title"]) < 15 ? $book["title"] : substr($book["title"], 0, 15) . "...";
