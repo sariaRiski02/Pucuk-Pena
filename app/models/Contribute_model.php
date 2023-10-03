@@ -131,15 +131,19 @@ class Contribute_model
                 return "Mohon Muat ulang";
             }
             if ($result) {
-                $query = "INSERT INTO books VALUES
-                ('', :title, :author, :sinopsis, :book, :cover)";
 
+                $pattern = '/\d+/';
+                preg_match($pattern,  $_SESSION["id_user"], $matches);
+                $idInt = intval($matches[0]);
+                $query = "INSERT INTO books VALUES
+                ('', :title, :author, :sinopsis, :book, :cover, :codeName)";
                 $this->db->query($query);
                 $this->db->bind("title", ucwords($title));
                 $this->db->bind("author", ucwords($author));
                 $this->db->bind("sinopsis", basename($target_file_sinop));
                 $this->db->bind("book", $_FILES["book"]["name"]);
                 $this->db->bind("cover", $_FILES["cover"]["name"]);
+                $this->db->bind("codeName", $idInt);
 
                 $this->db->execute();
                 $success =  $this->message("success", "Berhasil diunggah");

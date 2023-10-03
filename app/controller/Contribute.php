@@ -33,4 +33,16 @@ class Contribute extends Controller
         $this->view("Update/index", $data);
         $this->view("templates/footer", $data);
     }
+
+    public function Delete($id)
+    {
+
+        if (!(isset($_SESSION["email"]) && isset($_SESSION["id_user"]))) {
+            header("Location: " . BASEURL . "/Home");
+        }
+        $result = $this->model("Delete_model")->DeleteBook($id);
+        if ($result) {
+            header("Location: " . BASEURL . "/Collections");
+        }
+    }
 }

@@ -22,7 +22,7 @@
                     <form action="<?= BASEURL ?>/Contribute/UpdateBook/<?= $data["item"]["id"] ?>">
                         <button id="Update" name="update" type="submit">Edit</button>
                     </form>
-                    <form action="<?= BASEURL ?>/Contribute/Delete/<?= $data["item"]["id"] ?>">
+                    <form action="<?= BASEURL ?>/Contribute/Delete/<?= $data["item"]["id"] ?>" method="post">
                         <button id="delete" name="hapus" type="submit">Hapus</button>
                     </form>
                 <?php endif; ?>
