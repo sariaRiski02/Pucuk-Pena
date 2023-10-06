@@ -26,7 +26,8 @@ class Collections_model
             "title" => $this->db->single()["title"],
             "author" => $this->db->single()["author"],
             "cover" => $this->db->single()["cover"],
-            "sinopsis" => $sinopsis
+            "sinopsis" => $sinopsis,
+            "id_user" => $this->db->single()["codeName"]
         );
     }
 

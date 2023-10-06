@@ -19,12 +19,18 @@
                     <button name="unduh" type="submit">Unduh</button>
                 </form>
                 <?php if (isset($_SESSION["email"]) && isset($_SESSION["id_user"])) : ?>
-                    <form action="<?= BASEURL ?>/Contribute/UpdateBook/<?= $data["item"]["id"] ?>">
-                        <button id="Update" name="update" type="submit">Edit</button>
-                    </form>
-                    <form action="<?= BASEURL ?>/Contribute/Delete/<?= $data["item"]["id"] ?>" method="post">
-                        <button id="delete" name="hapus" type="submit">Hapus</button>
-                    </form>
+                    <?php
+                    $pattern = '/\d+/';
+                    preg_match($pattern,  $_SESSION["id_user"], $matches);
+                    $idInt = intval($matches[0]); ?>
+                    <?php if ($data["item"]["id_user"] == $idInt) : ?>
+                        <form action="<?= BASEURL ?>/Contribute/UpdateBook/<?= $data["item"]["id"] ?>">
+                            <button id="Update" name="update" type="submit">Edit</button>
+                        </form>
+                        <form action="<?= BASEURL ?>/Contribute/Delete/<?= $data["item"]["id"] ?>" method="post">
+                            <button id="delete" name="hapus" type="submit">Hapus</button>
+                        </form>
+                    <?php endif ?>
                 <?php endif; ?>
 
             </div>
