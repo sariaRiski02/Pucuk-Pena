@@ -1,0 +1,27 @@
+{
+    "name": "riskisaria/pucuk-pena",
+    "description": "pucuk pena is library online",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Riskisaria\\PucukPena\\": "app/"
+        }
+    },
+    "autoload-dev":{
+        "psr-4": {
+            "Riskisaria\\PucukPena\\": "tests/"         
+        }
+    },
+    "authors": [
+        {
+            "name": "sariaRiski02",
+            "email": "muhammatsaria026@student.unsrat.ac.id"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}

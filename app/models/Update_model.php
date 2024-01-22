@@ -37,56 +37,58 @@ class Update_model
             $sinopsis = htmlspecialchars($data["change_sinop"]);
 
             // CHANGE COVER
-            if (!$this->checkImg($cover)) {
-                $message = "Sampul hanya dapat berformat PNG, JPEG, JPG, atau GIF";
-                return $this->message("failed", $message);
+
+            if (!empty($cover)) {
+                if (!$this->checkImg($cover)) {
+                    $message = "Sampul hanya dapat berformat PNG, JPEG, JPG, atau GIF";
+                    return $this->message("failed", $message);
+                }
+
+                $max_size_img = 2000000;
+                if (filesize($_FILES["change_cover"]["tmp_name"]) > $max_size_img) {
+                    $message = "Max 2MB";
+                    return $this->message("failed", $message);
+                    exit;
+                }
+
+                // get the name of file img in the database to delete from directory
+                $this->db->query("SELECT cover FROM $this->table_name WHERE id=:id");
+                $this->db->bind("id", $id);
+                $old_cover = $this->db->single()["cover"];
+                if ($this->db->rowCount() < 1) {
+                    $message = "Kesalahan System, Mohon Coba lagi!";
+                    return $this->message("failed", $message);
+                    exit;
+                }
+                unlink("../public/assets/cover/" . $old_cover);
+
+
+                $file_info = pathinfo($cover);
+                $extension = $file_info["extension"];
+                $file_info2 = pathinfo($cover);
+                $basename = $file_info2["filename"];
+
+                $covername = $basename . time() . "." .  $extension;
+
+                $this->db->query("UPDATE " . $this->table_name . " SET cover=:cover" . " WHERE id=:id");
+                $this->db->bind("cover",  $covername);
+                $this->db->bind("id", $id);
+                $this->db->execute();
+                if ($this->db->rowCount() < 1) {
+                    $message = "Kesalahan System, Mohon Coba lagi! 1";
+                    return $this->message("failed", $this->db->rowCount() . $id);
+                    exit;
+                }
+
+                // move to directory
+                $target_file_cover =  "../public/assets/cover/" . $covername;
+                $result = (move_uploaded_file($_FILES["change_cover"]["tmp_name"], $target_file_cover));
+                if (!$result) {
+                    $message = "cover tidak bisa diunggah, Coba Lagi!";
+                    return $this->message("failed", $message);
+                    exit;
+                }
             }
-
-            $max_size_img = 2000000;
-            if (filesize($_FILES["change_cover"]["tmp_name"]) > $max_size_img) {
-                $message = "Max 2MB";
-                return $this->message("failed", $message);
-                exit;
-            }
-
-            // get the name of file img in the database to delete from directory
-            $this->db->query("SELECT cover FROM $this->table_name WHERE id=:id");
-            $this->db->bind("id", $id);
-            $old_cover = $this->db->single()["cover"];
-            if ($this->db->rowCount() < 1) {
-                $message = "Kesalahan System, Mohon Coba lagi!";
-                return $this->message("failed", $message);
-                exit;
-            }
-            unlink("../public/assets/cover/" . $old_cover);
-
-
-            $file_info = pathinfo($cover);
-            $extension = $file_info["extension"];
-            $file_info2 = pathinfo($cover);
-            $basename = $file_info2["filename"];
-
-            $covername = $basename . time() . "." .  $extension;
-
-            $this->db->query("UPDATE " . $this->table_name . " SET cover=:cover" . " WHERE id=:id");
-            $this->db->bind("cover",  $covername);
-            $this->db->bind("id", $id);
-            $this->db->execute();
-            if ($this->db->rowCount() < 1) {
-                $message = "Kesalahan System, Mohon Coba lagi! 1";
-                return $this->message("failed", $this->db->rowCount() . $id);
-                exit;
-            }
-
-            // move to directory
-            $target_file_cover =  "../public/assets/cover/" . $covername;
-            $result = (move_uploaded_file($_FILES["change_cover"]["tmp_name"], $target_file_cover));
-            if (!$result) {
-                $message = "cover tidak bisa diunggah, Coba Lagi!";
-                return $this->message("failed", $message);
-                exit;
-            }
-
             // CHANGE TITLE & 
 
             // update database
@@ -111,9 +113,6 @@ class Update_model
                     $this->message("failed", "perubahan gagal dilakukan");
                 }
             }
-
-
-
 
 
             // get the name of file sinops in the database to delete from directory

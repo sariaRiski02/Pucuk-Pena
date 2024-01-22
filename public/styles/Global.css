@@ -17,6 +17,7 @@ body{
 }
 
 header{
+    border: 1px solid black;
     display: flex;
     padding: 0 80px;
     height: 100px;
@@ -133,7 +134,17 @@ ul li:last-child{
         height: 3px;
         background-color: white;
     }
+    header{
+        justify-content: first baseline;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    menu-icon{
+        margin-right: 0;
+    }
     
-    
+    #menu-toggle{
+        right: 30px;
+    }
     
 }

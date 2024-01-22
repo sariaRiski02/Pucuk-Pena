@@ -1,7 +1,7 @@
     <main>
         <div class="search">
             <form method="post">
-                <input type="text" name="InputSearch">
+                <input type="text" name="InputSearch" placeholder="Judul, Penulis dll...">
                 <button type="submit" name="search">Cari</button>
             </form>
         </div>
