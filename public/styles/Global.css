@@ -17,7 +17,7 @@ body{
 }
 
 header{
-    border: 1px solid black;
+    z-index: 1000;
     display: flex;
     padding: 0 80px;
     height: 100px;
